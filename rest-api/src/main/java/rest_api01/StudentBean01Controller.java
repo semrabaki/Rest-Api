@@ -70,8 +70,8 @@ public class StudentBean01Controller {
 		
 		s2.setAge(13);
 		s2.setName("Ali Can");
-		s2.setId("AC%s202113");
-		return new StudentBean01 ("Ali Can", 13, String.format("AC%s202113",school));
+		s2.setId(String.format("AC%s202113", school));
+		return s2;         //new StudentBean01 ("Ali Can", 13, String.format("AC%s202113",school));
 		
 	}
 	
@@ -102,16 +102,25 @@ public class StudentBean01Controller {
 	}
 	
 	//You cannot use same path inside the @GetMapping parantehsis it does not work
-	
+    // You cannot use same path inside the @GetMapping paranthesis it does not work
+//  because there are 2 beans in IOC, Java cannot decide to select,
+//  Because of that we use @Qualifier(value="studentBean01") if we want to select bean of "studentBean01"
+//  If you use @Qualifier(value="studentBean02"), it means you selected bean of "studentBean02"
+//  Default name of beans in IOC is same with the class name whose initial is lower case
 	
 	@Autowired
-	@Qualifier(value="studentBean02")
+	@Qualifier(value="studentBean01")
 	StudentInterface std;
 	@GetMapping (path="/getMessage")
 	public String getMethod7()
 	{
 		return std.study();
 	}
+	
+
+
+	
+	
 	
 //	@Autowired
 //	StudentBean02 std;

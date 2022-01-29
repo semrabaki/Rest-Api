@@ -1,20 +1,19 @@
-package rest_api01;
+package review_restapi01;
 
 import org.springframework.stereotype.Component;
 
 @Component
-//By using that annotation, you are telling spring boot to create an object from StudentBean01 and put it into IOC Container
-public class StudentBean01  implements StudentInterface{ //The object in IOC Container is called Bean
+public class OgrenciBean01 implements OgrenciInterface{
 	
 	private String name;
 	private int age;
 	private String id;
-	
-	StudentBean01() {
-		System.out.println("Constructor without parameter is used");
+	OgrenciBean01() {
+	 
+		System.out.println("OgrenciBean01 Constructor without parameter is used");
 	}
-	StudentBean01(String name, int age, String id) {
-		super();
+	OgrenciBean01(String name, int age, String id) {
+		
 		this.name = name;
 		this.age = age;
 		this.id = id;
@@ -38,6 +37,7 @@ public class StudentBean01  implements StudentInterface{ //The object in IOC Con
 		this.id = id;
 	}
 	
+	
 	@Override
 	public String study() {
 		
@@ -45,9 +45,8 @@ public class StudentBean01  implements StudentInterface{ //The object in IOC Con
 	}
 	@Override
 	public String toString() {
-		return "StudentBean01 [name=" + name + ", age=" + age + ", id=" + id + "]";
+		return "OgrenciBean01 [name=" + name + ", age=" + age + ", id=" + id + "]";
 	}
-	
 	
 	
 	
