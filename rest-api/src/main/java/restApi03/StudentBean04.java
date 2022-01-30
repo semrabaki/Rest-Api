@@ -24,6 +24,7 @@ package restApi03;
 	        this.name = name;
 	        this.email = email;
 	        this.dob = dob;
+	        this.age=getAge();
 	        this.errMsg = "No error...";
 	    }
 	    
