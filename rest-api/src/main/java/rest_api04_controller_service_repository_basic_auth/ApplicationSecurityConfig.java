@@ -18,8 +18,11 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.
-			authorizeRequests().antMatchers("/","index","/css/*","/js/*").
+		http.csrf().disable().//When you put those, it means you unblocked PUT,POST,PATCH,DELETE methods.
+			authorizeRequests().
+			antMatchers("/","index","/css/*","/js/*").
+			//antMatchers("/**").hasRole(ApplicationUserRoles.ADMIN.name()).//If you type that just ADMIN will be able to use all methods
+                                                                             //If you do not type that all roles will be able to use all methods 
 			permitAll().
 			anyRequest().
 			authenticated().
